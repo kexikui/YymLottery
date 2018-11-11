@@ -8,6 +8,7 @@
 
 #import "YymlotteryWebController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import <TMSDK/TMEngineConfig.h>
 #import "YymLotteryObject.h"
 @interface YymlotteryWebController ()<UIWebViewDelegate>
 
@@ -24,7 +25,7 @@
     self.native = NO;
 
     [self.view addSubview:self.LotteryWebView];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/application/cdyem_a1/h5/#/",@"http://tm.you1mei.com"]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/application/cdyem_a1/h5/#/",[TMEngineConfig sharedManager].domain]]];
     [self.LotteryWebView loadRequest:request];
     
 }
